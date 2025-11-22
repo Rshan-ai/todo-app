@@ -124,4 +124,4 @@ Open-source.
 
 ## 👤 Author
 
-Your Name
+Rshan Goytom
