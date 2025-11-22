@@ -1,0 +1,13 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "To-Do List App (Vanilla JS) with JSON Server backend",
+  "scripts": {
+    "json-server": "json-server --watch db.json --port 3000",
+    "serve": "npx http-server . -p 8080",
+    "start": "concurrently \"npm run json-server\" \"npm run serve\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}

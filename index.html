@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>To-Do List</h1>
+    <div class="meta">
+      <small id="statusText">Loading...</small>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="create">
+      <h2>Create Task</h2>
+      <form id="todoForm">
+        <div class="row">
+          <input required id="title" placeholder="Title" maxlength="120" />
+          <input id="due" type="datetime-local" />
+        </div>
+        <textarea id="description" placeholder="Description (optional)"></textarea>
+        <div class="row actions">
+          <button id="saveBtn" type="submit">Add Task</button>
+          <button id="clearBtn" type="button" class="muted">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list">
+      <div class="list-header">
+        <h2>Tasks</h2>
+        <div class="controls">
+          <select id="filter">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="overdue">Overdue</option>
+          </select>
+          <button id="refreshBtn" class="muted">Refresh</button>
+        </div>
+      </div>
+
+      <ul id="todoList" class="todos"></ul>
+    </section>
+  </main>
+
+  <!-- Edit Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Edit Task</h3>
+      <form id="editForm">
+        <input id="editTitle" required />
+        <input id="editDue" type="datetime-local" />
+        <textarea id="editDescription"></textarea>
+        <div class="row actions">
+          <button id="updateBtn" type="submit">Save</button>
+          <button id="cancelEdit" type="button" class="muted">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
